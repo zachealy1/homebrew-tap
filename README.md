@@ -42,3 +42,13 @@ Report product bugs and workflow feedback in the [Orchestrator issue tracker](ht
 Release updates are reviewed manually. When updating the cask, verify that the release is public, check both architecture-specific DMG checksums, confirm the app bundle name and minimum macOS version, and update the version in this README. The cask uses pinned release URLs and contains no installer scripts or quarantine overrides.
 
 This tap's packaging is MIT licensed; see [LICENSE](LICENSE).
+
+## Cask audit
+
+The [Homebrew cask audit workflow](https://github.com/zachealy1/homebrew-tap/actions/workflows/cask-audit.yml) runs on a clean macOS runner for changes to the cask or its audit configuration. It checks both architecture variants with:
+
+```sh
+brew audit --cask --strict --online --arch=all zachealy1/tap/orchestrator
+```
+
+This tap intentionally distributes a public beta. Homebrew's supported GitHub prerelease allowlist is scoped to `orchestrator` version `0.2.0-beta.2` in [audit_exceptions/github_prerelease_allowlist.json](audit_exceptions/github_prerelease_allowlist.json). Review that entry for each beta update and remove it for a stable release. The GitHub release remains marked as a prerelease. This exception does not skip artifact, checksum or other cask audits; passing the audit does not mean Apple has notarized the app.
