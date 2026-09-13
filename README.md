@@ -12,6 +12,12 @@ Requires macOS 15 or later, an Apple Silicon or Intel Mac, and an existing [Home
 brew install --cask zachealy1/tap/orchestrator
 ```
 
+If Homebrew asks you to trust this third-party cask, review [Casks/orchestrator.rb](Casks/orchestrator.rb), then run the following before repeating the install command:
+
+```sh
+brew trust --cask zachealy1/tap/orchestrator
+```
+
 Homebrew chooses the installer for your Mac's architecture and verifies its SHA-256 checksum. This tap currently packages [v0.2.0-beta.2](https://github.com/zachealy1/orchestrator/releases/tag/v0.2.0-beta.2).
 
 **This beta is not notarized by Apple.** Homebrew preserves quarantine protection, and macOS may block the first launch. Read the [installation guidance and limitations](https://github.com/zachealy1/orchestrator#download-and-install) before opening it. This is a maintainer-run tap, separate from the Homebrew project's cask directory.
