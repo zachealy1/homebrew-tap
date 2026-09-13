@@ -31,6 +31,7 @@ jobs:
         run: brew update
       - name: Audit the checked-out tap
         run: |
+          brew trust --cask zachealy1/tap/orchestrator
           brew tap zachealy1/tap "$GITHUB_WORKSPACE"
           brew config
           brew audit --cask --strict --online --arch=all zachealy1/tap/orchestrator
